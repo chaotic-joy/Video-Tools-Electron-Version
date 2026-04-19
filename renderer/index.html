@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Tools</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>Video Tools</h1>
+    <p class="subtitle">Merge videos or create a 1-hour loop — processed natively on your Mac.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="merge">Merge Videos</button>
+      <button class="tab-btn" data-tab="loop">1-Hour Loop</button>
+    </div>
+
+    <!-- MERGE TAB -->
+    <div class="panel active" id="panel-merge">
+      <div class="drop-zone" id="merge-drop-zone">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
+        </svg>
+        <p>Drop video files here</p>
+        <button class="btn-secondary" id="merge-pick-btn">Add Videos</button>
+      </div>
+
+      <div class="file-list" id="merge-file-list"></div>
+
+      <button class="btn-primary" id="merge-start-btn" disabled>Merge Videos</button>
+
+      <div class="progress-section" id="merge-progress">
+        <div class="progress-label">
+          <span id="merge-progress-pct">0%</span>
+          <span id="merge-ffmpeg-status"></span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="merge-progress-bar"></div>
+        </div>
+        <div class="progress-eta" id="merge-eta"></div>
+      </div>
+      <div class="status-msg" id="merge-status"></div>
+    </div>
+
+    <!-- LOOP TAB -->
+    <div class="panel" id="panel-loop">
+      <div class="drop-zone" id="loop-drop-zone">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17 2l4 4-4 4M3 11V9a4 4 0 014-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 01-4 4H3"/>
+        </svg>
+        <p>Drop a video file here</p>
+        <button class="btn-secondary" id="loop-pick-btn">Choose Video</button>
+      </div>
+
+      <div class="info-box" id="loop-info" style="display:none">
+        <div class="info-row">
+          <span>File</span>
+          <span id="loop-file-name">—</span>
+        </div>
+        <div class="info-row">
+          <span>Source duration</span>
+          <span id="loop-src-duration">—</span>
+        </div>
+        <div class="info-row">
+          <span>Loop count</span>
+          <span id="loop-count">—</span>
+        </div>
+        <div class="info-row">
+          <span>Output duration</span>
+          <span id="loop-out-duration">—</span>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="loop-start-btn" disabled>Create 1-Hour Loop</button>
+
+      <div class="progress-section" id="loop-progress">
+        <div class="progress-label">
+          <span id="loop-progress-pct">0%</span>
+          <span id="loop-ffmpeg-status"></span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="loop-progress-bar"></div>
+        </div>
+        <div class="progress-eta" id="loop-eta"></div>
+      </div>
+      <div class="status-msg" id="loop-status"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
